@@ -12,6 +12,7 @@ compiler:
 before_install:
  - brew install postgis || true
  - brew info postgres
+ - brew info postgis
  - pg_ctl -w start -l postgres.log --pgdata /usr/local/var/postgres
  - createuser -s postgres
  - which createuser
