@@ -13,6 +13,9 @@ before_install:
  - brew install postgis || true
  - brew info postgres
  - brew info postgis
+ - ls -l /usr/local/share/postgis/ || true
+ - ls -l /usr/local/opt/postgresql/lib/ || true
+ - ls -l /usr/local/opt/postgresql/share/postgresql/extension/ || true
  - pg_ctl -w start -l postgres.log --pgdata /usr/local/var/postgres
  - createuser -s postgres
  - which createuser
