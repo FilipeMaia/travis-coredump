@@ -11,8 +11,13 @@ compiler:
 
 before_install:
  - brew install postgis || true
+ - 11brew info postgres
  - pg_ctl -w start -l postgres.log --pgdata /usr/local/var/postgres
  - createuser -s postgres
+ - which createuser
+ - which psql
+ - ls $(brew --prefix)/var/ || true
+ - ls $(brew --prefix)/share/ || true
  - ls $(brew --prefix)/share/postgresql/extension/*postgis* || true
  - ls $(brew --prefix)/share/postgresql/contrib/ || true
  - ls $(brew --prefix)/share/postgresql/contrib/*postgis* || true
