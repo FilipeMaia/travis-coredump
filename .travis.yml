@@ -14,6 +14,8 @@ before_install:
  - pg_ctl -w start -l postgres.log --pgdata /usr/local/var/postgres
  - cat postgres.log
  - psql -l || true
+ - psql -d postgres -c 'create database template_postgis;' || true
+ - createuser -s postgres
  - psql -l -U postgres || true
  - psql -U postgres -c 'create database template_postgis;' || true
  - psql -U postgres -c 'create extension postgis;' -d template_postgis || true
