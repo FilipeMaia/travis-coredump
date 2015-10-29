@@ -11,9 +11,10 @@ compiler:
 
 before_install:
  - brew install postgis || true
- - pg_ctl -D /usr/local/var/postgres start
- - psql -U postgres -c 'create database template_postgis;' -U postgres;
- - psql -U postgres -c 'create extension postgis;' -d template_postgis -U postgres;
+ - pg_ctl -w start -l postgres.log --pgdata /usr/local/var/postgres
+ - cat postgres.log
+ - psql -U postgres -c 'create database template_postgis;'
+ - psql -U postgres -c 'create extension postgis;' -d template_postgis
  # install the gnu debugger for later use in reading the core file
  - sudo apt-get -y install gdb
 
