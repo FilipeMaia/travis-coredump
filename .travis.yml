@@ -12,13 +12,14 @@ compiler:
 before_install:
  - brew install postgis || true
  - pg_ctl -w start -l postgres.log --pgdata /usr/local/var/postgres
- - cat postgres.log
- - psql -l || true
- - psql -d postgres -c 'create database template_postgis;' || true
  - createuser -s postgres
- - psql -l -U postgres || true
- - psql -U postgres -c 'create database template_postgis;' || true
- - psql -U postgres -c 'create extension postgis;' -d template_postgis || true
+ - ls $(brew --prefix)/share/postgresql/extension/*postgis*
+ - ls $(brew --prefix)/share/postgresql/contrib/
+ - ls $(brew --prefix)/share/postgresql/contrib/*postgis*
+ - psql -U postgres -c 'create database template_postgis;'
+ - psql -U postgres -f $(brew --prefix)/share/postgresql/contrib/postgis-2.1/postgis.sql
+ - psql -U postgres -f $(brew --prefix)/share/postgresql/contrib/postgis-2.1/spatial_ref_sys.sql
+ - psql -U postgres -d template_postgis -c "SELECT PostGIS_Full_Version();"
  # install the gnu debugger for later use in reading the core file
  - sudo apt-get -y install gdb
 
