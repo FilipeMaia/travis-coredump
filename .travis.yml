@@ -13,6 +13,10 @@ before_install:
  - brew install postgis || true
  - brew info postgres
  - brew info postgis
+ - brew rm postgres --force
+ - brew rm postgis --force
+ - brew install postgis
+ - brew info postgis
  - ls -l /usr/local/share/postgis/ || true
  - ls -l /usr/local/opt/postgresql/lib/ || true
  - ls -l /usr/local/opt/postgresql/share/postgresql/extension/ || true
