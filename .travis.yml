@@ -34,7 +34,7 @@ before_install:
  - psql -U postgres -c 'create extension postgis;' -d template_postgis -U postgres;
  #- psql -U postgres -d template_postgis -f $(brew --prefix)/share/postgis/postgis.sql || true
  #- psql -U postgres -d template_postgis -f $(brew --prefix)/share/postgis/spatial_ref_sys.sql || true
- #- psql -U postgres -d template_postgis -c "SELECT PostGIS_Full_Version();" || true
+ - psql -U postgres -d template_postgis -c "SELECT PostGIS_Full_Version();" || true
  # install the gnu debugger for later use in reading the core file
  - sudo apt-get -y install gdb
 
