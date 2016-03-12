@@ -3,6 +3,7 @@ machine:
     version: 7.2
   environment:
     CRASH_PLEASE: boooooooom
+    XCODE_SCHEME: "asdf"
 
 checkout:
   post:
@@ -10,17 +11,16 @@ checkout:
 
 ## Customize dependencies
 dependencies:
-  pre:
+  override:
     - sudo apt-get -y update && sudo apt-get -y install gdb
 
   cache_directories:
     - "./mason_packages"
 
 test:
-  pre:
+  override:
     - ulimit -c
     - ulimit -c unlimited -S
-  post:
     - RESULT=0
     # Compile our demo program which will crash if
     # the CRASH_PLEASE environment variable is set (to anything)
