@@ -4,8 +4,10 @@ machine:
   environment:
     CRASH_PLEASE: boooooooom
     XCODE_SCHEME: "asdf"
-  override:
+  pre:
     - echo "here"
+  post:
+    - echo "there"
 
 checkout:
   post:
