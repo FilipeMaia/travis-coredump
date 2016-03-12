@@ -4,6 +4,7 @@ machine:
   environment:
     CRASH_PLEASE: boooooooom
     XCODE_SCHEME: "asdf"
+    XCODE_WORKSPACE: "Asdf"
   pre:
     - echo "here"
   post:
