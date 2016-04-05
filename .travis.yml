@@ -44,6 +44,7 @@ script:
  # If the program returned an error code, now we check for a
  # core file in the current working directory and dump the backtrace out
  - for i in $(find ./ -maxdepth 1 -name 'core*' -print); do gdb $(pwd)/test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done;
+ - find ./ -maxdepth 1 -name 'core*' -print
  - for i in $(find /var/crash -maxdepth 1 -name '*.crash' -print); do gdb $(pwd)/test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done;
  # now we should present travis with the original
  # error code so the run cleanly stops
