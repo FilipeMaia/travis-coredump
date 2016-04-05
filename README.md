@@ -1,4 +1,4 @@
-## travis-coredump
+## travis-coredump 
 
 On travis you might see a cryptic error like:
 
